@@ -1,25 +1,28 @@
 @import "tailwindcss";
 
 /*
-  Design tokens — DRAFT, to be approved by Daniela.
-  Colour values are placeholders until the exact palette is confirmed.
+  Design tokens — Daniela's palette (from the Framer site).
+  Secondary orange: use for large text, accents and graphics only
+  (contrast on white is too low for small body text).
 */
 :root {
-  --color-white: #ffffff;
-  --color-neutral: #f6f5f8;
-  --color-grey: #6b6878;
-  --color-ink: #1c1a24;
-  --color-primary: #6b4fd8;   /* purple — placeholder */
-  --color-secondary: #e8743b; /* orange — placeholder */
+  --palette-white: #ffffff;
+  --palette-primary: #594074;
+  --palette-grey: #333333;
+  --palette-60: #6e6878;
+  --palette-neutral: #eae6e0;
+  --palette-secondary: #dd6e1f;
+  --palette-footer: #645375;
 }
 
 @theme inline {
-  --color-background: var(--color-white);
-  --color-surface: var(--color-neutral);
-  --color-muted: var(--color-grey);
-  --color-foreground: var(--color-ink);
-  --color-primary: var(--color-primary);
-  --color-secondary: var(--color-secondary);
+  --color-background: var(--palette-white);
+  --color-surface: var(--palette-neutral);
+  --color-foreground: var(--palette-grey);
+  --color-muted: var(--palette-60);
+  --color-primary: var(--palette-primary);
+  --color-secondary: var(--palette-secondary);
+  --color-footer: var(--palette-footer);
   --font-sans: var(--font-inter);
   --font-display: var(--font-bricolage);
 }

@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/*
+  Design tokens — DRAFT, to be approved by Daniela.
+  Colour values are placeholders until the exact palette is confirmed.
+*/
+:root {
+  --color-white: #ffffff;
+  --color-neutral: #f6f5f8;
+  --color-grey: #6b6878;
+  --color-ink: #1c1a24;
+  --color-primary: #6b4fd8;   /* purple — placeholder */
+  --color-secondary: #e8743b; /* orange — placeholder */
+}
+
+@theme inline {
+  --color-background: var(--color-white);
+  --color-surface: var(--color-neutral);
+  --color-muted: var(--color-grey);
+  --color-foreground: var(--color-ink);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-bricolage);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}

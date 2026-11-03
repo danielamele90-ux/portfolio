@@ -13,6 +13,8 @@
   --palette-neutral: #eae6e0;
   --palette-secondary: #dd6e1f;
   --palette-footer: #645375;
+  /* Lighter tint of secondary: readable as large text on the footer */
+  --palette-highlight: #f2a66e;
 }
 
 @theme inline {
@@ -23,6 +25,7 @@
   --color-primary: var(--palette-primary);
   --color-secondary: var(--palette-secondary);
   --color-footer: var(--palette-footer);
+  --color-highlight: var(--palette-highlight);
   --font-sans: var(--font-inter);
   --font-display: var(--font-bricolage);
 }

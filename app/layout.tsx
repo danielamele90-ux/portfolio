@@ -13,7 +13,7 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "Daniela Mele — Product Designer",
+  title: "Daniela Mele | Product Designer",
   description: "Product Designer based in Berlin.",
 };
 

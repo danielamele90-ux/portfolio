@@ -12,8 +12,11 @@ export function SiteFooter() {
   return (
     <footer id="contact" className="mt-auto bg-footer text-white">
       <div className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="font-display text-3xl font-semibold">
-          Let&apos;s talk about your next product.
+        <h2 className="max-w-3xl font-display text-3xl font-semibold leading-tight md:text-4xl">
+          Curious about what we can{" "}
+          <span className="text-highlight">build</span> together?{" "}
+          Let&apos;s shape thoughtful{" "}
+          <span className="text-highlight">solutions</span> together!
         </h2>
         <p className="mt-3 text-white/80">Available for work · Berlin</p>
         <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3">

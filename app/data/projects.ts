@@ -67,9 +67,10 @@ export const projects: Project[] = [
     slug: "expat-families",
     name: "App for Expat families",
     title: "A service app for expat families",
-    line: "Case study in progress.",
-    tags: ["In progress"],
-    placeholder: "This case study is in progress.",
+    line: "Started as a project for a real client; now an independent redesign. Case study in progress.",
+    tags: ["Real client", "Mobile", "In progress"],
+    placeholder:
+      "This project started as client work. The client paused it, and I'm now redesigning it independently with my own guidelines. The case study is in progress.",
   },
 ];
 

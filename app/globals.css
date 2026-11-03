@@ -32,3 +32,33 @@ body {
   color: var(--color-foreground);
   font-family: var(--font-inter), system-ui, sans-serif;
 }
+
+/* Motion: kept to two small moments (hero portrait, footer heart). */
+@keyframes heartbeat {
+  0%, 60%, 100% { transform: scale(1); }
+  15% { transform: scale(1.22); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.14); }
+}
+
+/* Recreates the original GIF timing: 2s front, 0.5s tilt, 2s front */
+@keyframes portrait-tilt {
+  0%, 44.4% { opacity: 0; }
+  44.5%, 55.5% { opacity: 1; }
+  55.6%, 100% { opacity: 0; }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.4s ease-in-out infinite;
+}
+
+.animate-portrait-tilt {
+  animation: portrait-tilt 4.5s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-heartbeat,
+  .animate-portrait-tilt {
+    animation: none;
+  }
+}

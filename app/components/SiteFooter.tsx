@@ -1,3 +1,4 @@
+import Image from "next/image";
 const links = [
   { label: "danielamele90@gmail.com", href: "mailto:danielamele90@gmail.com" },
   { label: "+49 178 2492716", href: "tel:+491782492716" },
@@ -15,7 +16,15 @@ export function SiteFooter() {
         <h2 className="max-w-3xl font-display text-3xl font-semibold leading-tight md:text-4xl">
           Let&apos;s talk about your next product.
         </h2>
-        <p className="mt-3 text-white/80">
+        <p className="mt-3 flex items-center gap-2 text-white/80">
+          <Image
+            src="/images/heart-pink.png"
+            alt=""
+            aria-hidden
+            width={18}
+            height={16}
+            className="animate-heartbeat"
+          />
           Available for work · Berlin · Milan · Remote
         </p>
         <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3">

@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { getProject, projects } from "@/app/data/projects";
+import { SummaryVisual } from "@/app/components/SummaryVisual";
+import Image from "next/image";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -63,15 +65,23 @@ export default async function CaseStudy({
               ))}
             </dl>
             {s.note && <p className="mt-6 text-sm text-muted">{s.note}</p>}
-            {/* Visual placeholder — replaced by the real image */}
-            <div className="mt-10 flex aspect-[16/9] items-center justify-center rounded-xl bg-white text-sm text-muted">
-              {s.visual}
-            </div>
+            <SummaryVisual type={s.visual} />
           </section>
         ) : (
           <section className="mt-12 rounded-2xl bg-surface p-6 md:p-10">
             <p className="text-lg leading-relaxed">{project.line}</p>
             <p className="mt-6 text-muted">{project.placeholder}</p>
+            {project.cover && (
+              <div className="relative mt-10 aspect-[4/3] overflow-hidden rounded-xl">
+                <Image
+                  src={project.cover.src}
+                  alt={project.cover.alt}
+                  fill
+                  sizes="(min-width: 768px) 700px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
           </section>
         )}
       </main>

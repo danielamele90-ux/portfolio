@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/app/data/projects";
 
@@ -7,13 +8,21 @@ export function ProjectCard({ project }: { project: Project }) {
       href={`/work/${project.slug}`}
       className="group flex flex-col rounded-2xl p-2 transition-colors hover:bg-surface/60"
     >
-      {/* Visual placeholder — replaced by the real cover image */}
-      <div className="flex aspect-[4/3] items-end rounded-xl bg-surface p-5">
-        <span className="text-xs uppercase tracking-widest text-muted">
-          {project.name}
-        </span>
+      <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-surface">
+        {project.cover ? (
+          <Image
+            src={project.cover.src}
+            alt={project.cover.alt}
+            fill
+            sizes="(min-width: 768px) 480px, 100vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+        ) : null}
       </div>
-      <div className="px-2 pb-2 pt-5">
+      <p className="mt-5 px-2 text-xs uppercase tracking-widest text-muted">
+        {project.name}
+      </p>
+      <div className="px-2 pb-2 pt-2">
         <h3 className="font-display text-2xl font-semibold leading-snug group-hover:text-primary">
           {project.title}
         </h3>

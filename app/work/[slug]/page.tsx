@@ -5,6 +5,8 @@ import { SiteHeader } from "@/app/components/SiteHeader";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { getProject, projects } from "@/app/data/projects";
 import { SummaryVisual } from "@/app/components/SummaryVisual";
+import { CaseSections } from "@/app/components/CaseSections";
+import { caseStudies } from "@/app/data/caseStudies";
 import Image from "next/image";
 
 export function generateStaticParams() {
@@ -29,6 +31,7 @@ export default async function CaseStudy({
   const project = getProject(slug);
   if (!project) notFound();
   const s = project.summary;
+  const cs = caseStudies[project.slug];
 
   return (
     <>
@@ -67,7 +70,25 @@ export default async function CaseStudy({
             {s.note && <p className="mt-6 text-sm text-muted">{s.note}</p>}
             <SummaryVisual type={s.visual} />
           </section>
-        ) : (
+        ) : null}
+
+        {cs && (
+          <>
+            <section aria-label="My role" className="mt-16">
+              <p className="text-sm text-muted">my role.</p>
+              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                {cs.role.map((r) => (
+                  <li key={r} className="rounded-xl border border-surface p-4">
+                    {r}
+                  </li>
+                ))}
+              </ul>
+            </section>
+            <CaseSections sections={cs.sections} />
+          </>
+        )}
+
+        {!s && (
           <section className="mt-12 rounded-2xl bg-surface p-6 md:p-10">
             <p className="text-lg leading-relaxed">{project.line}</p>
             <p className="mt-6 text-muted">{project.placeholder}</p>

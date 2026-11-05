@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HowIWork } from "@/app/components/HowIWork";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { ProjectCard } from "@/app/components/ProjectCard";
@@ -19,7 +20,8 @@ export default function Home() {
       <main className="mx-auto w-full max-w-5xl px-6">
         <section className="py-20 md:py-28">
           <h1 className="max-w-4xl font-display text-5xl font-semibold leading-[1.05] md:text-7xl">
-            Product Designer focused on complex user journeys
+            <span className="text-primary">Product Designer</span> focused on
+            complex user journeys
           </h1>
           <p className="mt-8 max-w-2xl text-lg text-muted md:text-xl">
             I connect user needs with business priorities to design clear,
@@ -40,7 +42,7 @@ export default function Home() {
 
         <section
           id="about"
-          className="grid scroll-mt-8 gap-10 border-t border-surface py-24 md:grid-cols-[280px_1fr] md:gap-16"
+          className="grid gap-10 border-t border-surface py-24 md:grid-cols-[280px_1fr] md:gap-16"
         >
           <div className="relative mx-auto aspect-square w-56 overflow-hidden rounded-full bg-surface md:w-full">
             <Image
@@ -99,6 +101,7 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+            <HowIWork />
           </div>
         </section>
       </main>

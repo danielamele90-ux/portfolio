@@ -18,7 +18,7 @@ function CroppedIcon() {
   return (
     <motion.svg
       viewBox="0 0 48 48"
-      className="size-12"
+      className="size-20"
       initial="start"
       whileInView="end"
       viewport={inView}
@@ -70,7 +70,7 @@ function SignedIcon() {
   return (
     <motion.svg
       viewBox="0 0 48 48"
-      className="size-12"
+      className="size-20"
       initial="start"
       whileInView="end"
       viewport={inView}
@@ -111,7 +111,7 @@ function TruedIcon() {
   return (
     <motion.svg
       viewBox="0 0 48 48"
-      className="size-12"
+      className="size-20"
       initial="start"
       whileInView="end"
       viewport={inView}
@@ -169,42 +169,54 @@ const principles = [
 export function HowIWork() {
   return (
     <MotionConfig reducedMotion="user">
-      <div className="mt-12">
-        <h3 className="text-sm uppercase tracking-widest text-muted">
+      <section
+        id="how-i-work"
+        aria-labelledby="how-i-work-title"
+        className="border-t border-surface py-24 text-center"
+      >
+        <p className="text-sm uppercase tracking-widest text-muted">
           How I work
-        </h3>
-        <p className="mt-2 text-sm text-muted">
+        </p>
+        <h2
+          id="how-i-work-title"
+          className="mx-auto mt-4 max-w-2xl font-display text-3xl font-semibold leading-tight md:text-4xl"
+        >
+          From complexity to connected experiences.
+        </h2>
+        <p className="mt-3 text-sm text-muted">
           Three words built from the letters of Product Designer.
         </p>
-        <ol className="mt-6 divide-y divide-surface border-y border-surface">
+        <ol className="mt-14 grid gap-14 md:grid-cols-3 md:gap-10">
           {principles.map(
             ({ Icon, word, title, text, tagline, project }, i) => (
-              <li key={word} className="grid grid-cols-[48px_1fr] gap-5 py-6">
+              <li key={word} className="flex flex-col items-center">
                 <Icon />
-                <div>
-                  <p className="font-semibold">
-                    <span className="text-muted">0{i + 1}.</span>{" "}
-                    <span className="uppercase tracking-wide text-primary">
-                      {word}
-                    </span>
-                    : {title}
-                  </p>
-                  <p className="mt-2 leading-relaxed">{text}</p>
-                  <p className="mt-2 text-sm text-muted">
-                    {tagline} · See it in{" "}
-                    <Link
-                      href={project.href}
-                      className="text-primary underline-offset-4 hover:underline"
-                    >
-                      {project.label}
-                    </Link>
-                  </p>
-                </div>
+                <p className="mt-6 text-sm text-muted">0{i + 1}</p>
+                <h3 className="mt-1 font-display text-2xl font-semibold">
+                  <span className="uppercase tracking-wide text-primary">
+                    {word}
+                  </span>
+                </h3>
+                <p className="mt-1 font-semibold">{title}</p>
+                <p className="mt-3 max-w-xs leading-relaxed text-muted">
+                  {text}
+                </p>
+                <p className="mt-3 text-sm text-muted">
+                  {tagline}
+                  <br />
+                  See it in{" "}
+                  <Link
+                    href={project.href}
+                    className="text-primary underline-offset-4 hover:underline"
+                  >
+                    {project.label}
+                  </Link>
+                </p>
               </li>
             ),
           )}
         </ol>
-      </div>
+      </section>
     </MotionConfig>
   );
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { HowIWork } from "@/app/components/HowIWork";
+import { FlowText } from "@/app/components/FlowText";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { ProjectCard } from "@/app/components/ProjectCard";
@@ -23,10 +24,10 @@ export default function Home() {
             <span className="text-primary">Product Designer</span> focused on
             complex user journeys
           </h1>
-          <p className="mt-8 max-w-2xl text-lg text-muted md:text-xl">
-            I connect user needs with business priorities to design clear,
-            cohesive experiences, aligning teams around a shared vision.
-          </p>
+          <FlowText
+            className="mt-8 max-w-2xl text-lg text-muted md:text-xl"
+            text="I connect user needs with business priorities to design clear, cohesive experiences, aligning teams around a shared vision."
+          />
         </section>
 
         <section id="work" className="pb-24">
@@ -101,9 +102,10 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-            <HowIWork />
           </div>
         </section>
+
+        <HowIWork />
       </main>
       <SiteFooter />
     </>

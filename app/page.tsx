@@ -40,7 +40,7 @@ export default function Home() {
 
         <section
           id="about"
-          className="grid scroll-mt-8 gap-10 border-t border-surface py-24 md:grid-cols-[280px_1fr] md:gap-16"
+          className="grid gap-10 border-t border-surface py-24 md:grid-cols-[280px_1fr] md:gap-16"
         >
           <div className="relative mx-auto aspect-square w-56 overflow-hidden rounded-full bg-surface md:w-full">
             <Image

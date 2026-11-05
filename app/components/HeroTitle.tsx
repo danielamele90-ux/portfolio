@@ -8,10 +8,10 @@ const REST = " focused on complex user journeys";
 const LETTERS = ROLE.join("").split("");
 const COUNT = LETTERS.length;
 
-// Timing (seconds). Total ≈ 1.9 s; about 4 letters in flight at once, so it reads.
-const ARRIVE = 0.3; // letters appear, upright, in shuffled slots
-const STAGGER = 0.09; // gap between letters moving into place, left to right
-const MOVE = 0.35; // each letter's move into its own slot
+// Timing (seconds). Total ≈ 3.9 s; about 3 letters in flight at once, so it reads.
+const ARRIVE = 0.5; // letters appear, upright, in shuffled slots
+const STAGGER = 0.2; // gap between letters moving into place, left to right
+const MOVE = 0.6; // each letter's move into its own slot
 
 // Fixed shuffle so server and client agree; no letter starts in its own slot.
 function shuffled(n: number) {

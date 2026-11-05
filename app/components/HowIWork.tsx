@@ -81,7 +81,7 @@ function SignedIcon() {
         x2={44}
         y2={36}
         strokeWidth={1.5}
-        className="stroke-surface"
+        className="stroke-muted" opacity={0.35}
       />
       <motion.path
         d="M4 24 L9 21 L12 27 L17 20 L21 26 L26 22 L30 28 L35 21 L39 25 L44 23"
@@ -186,32 +186,33 @@ export function HowIWork() {
         <p className="mt-3 text-sm text-muted">
           Three words built from the letters of Product Designer.
         </p>
-        <ol className="mt-14 grid gap-14 md:grid-cols-3 md:gap-10">
+        <ol className="mt-14 grid gap-5 text-left md:grid-cols-3">
           {principles.map(
             ({ Icon, word, title, text, tagline, project }, i) => (
-              <li key={word} className="flex flex-col items-center">
-                <Icon />
-                <p className="mt-6 text-sm text-muted">0{i + 1}</p>
-                <h3 className="mt-1 font-display text-2xl font-semibold">
-                  <span className="uppercase tracking-wide text-primary">
+              <li
+                key={word}
+                className="flex flex-col rounded-3xl bg-surface p-6 md:p-7"
+              >
+                <div className="flex flex-col items-center pt-4 text-center md:mb-8">
+                  <Icon />
+                  <p className="mt-6 text-sm text-muted">0{i + 1}</p>
+                  <h3 className="mt-1 font-display text-2xl font-semibold uppercase tracking-wide text-primary">
                     {word}
+                  </h3>
+                  <p className="mt-1 font-semibold">{title}</p>
+                  <p className="mt-3 leading-relaxed text-muted">{text}</p>
+                  <p className="mt-3 text-sm text-muted">{tagline}</p>
+                </div>
+                <Link
+                  href={project.href}
+                  className="mt-8 flex items-center justify-between rounded-full bg-white px-5 py-3 text-sm transition-colors hover:text-primary md:mt-auto"
+                >
+                  <span>
+                    See it in{" "}
+                    <span className="font-semibold">{project.label}</span>
                   </span>
-                </h3>
-                <p className="mt-1 font-semibold">{title}</p>
-                <p className="mt-3 max-w-xs leading-relaxed text-muted">
-                  {text}
-                </p>
-                <p className="mt-3 text-sm text-muted">
-                  {tagline}
-                  <br />
-                  See it in{" "}
-                  <Link
-                    href={project.href}
-                    className="text-primary underline-offset-4 hover:underline"
-                  >
-                    {project.label}
-                  </Link>
-                </p>
+                  <span aria-hidden>→</span>
+                </Link>
               </li>
             ),
           )}

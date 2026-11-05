@@ -30,7 +30,16 @@ export function CoverImage({
         src={cover.src}
         alt={cover.alt}
         fill
-        sizes={sizes}
+        // A rotated cover is drawn larger, so ask for a larger image to stay sharp
+        sizes={
+          deg
+            ? // scale the slot widths, not the media-query breakpoints
+              sizes.replace(
+                /(^|\)\s*|,\s*)(\d+)(px|vw)/g,
+                (_, pre, n, u) => `${pre}${Math.ceil(Number(n) * scale)}${u}`,
+              )
+            : sizes
+        }
         className={`object-cover ${className}`}
       />
     </div>

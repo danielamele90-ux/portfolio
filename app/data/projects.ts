@@ -13,7 +13,7 @@ export type Project = {
   title: string;
   line: string;
   tags: string[];
-  cover?: { src: string; alt: string };
+  cover?: { src: string; alt: string; rotate?: number };
   summary?: Summary;
   placeholder?: string;
 };
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     title: "Fitness as a shared experience",
     line: "Shaped a community-driven service for a gym chain losing members, tested across digital booking and the real-world activity.",
     tags: ["Educational project", "Service journey", "Mobile"],
-    cover: { src: "/images/covers/meetfit.webp", alt: "MeetFIT app screens for booking a group activity" },
+    cover: { src: "/images/covers/meetfit.webp", alt: "MeetFIT app screens for booking a group activity", rotate: 45 },
     placeholder:
       "This case study is being rebuilt around an AI-assisted live prototype of the booking experience.",
   },

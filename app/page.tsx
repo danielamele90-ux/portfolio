@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { HowIWork } from "@/app/components/HowIWork";
 import { FlowText } from "@/app/components/FlowText";
+import { HeroRibbon } from "@/app/components/HeroRibbon";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { ProjectCard } from "@/app/components/ProjectCard";
@@ -28,6 +29,7 @@ export default function Home() {
             className="mt-8 max-w-2xl text-lg text-muted md:text-xl"
             text="I connect user needs with business priorities to design clear, cohesive experiences, aligning teams around a shared vision."
           />
+          <HeroRibbon />
         </section>
 
         <section id="work" className="pb-24">

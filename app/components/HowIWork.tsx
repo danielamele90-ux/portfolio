@@ -42,7 +42,7 @@ function CroppedIcon() {
         width={12}
         height={12}
         rx={2}
-        className="fill-primary"
+        className="fill-secondary"
       />
       {[
         { d: "M14 20 V14 H20", from: { x: -8, y: -8 } },
@@ -97,7 +97,7 @@ function SignedIcon() {
         fill="none"
         strokeWidth={2.5}
         strokeLinecap="round"
-        className="stroke-primary"
+        className="stroke-secondary"
         variants={{ start: { pathLength: 0 }, end: { pathLength: 1 } }}
         transition={{ duration: 0.9, ease: "easeInOut", delay: 0.2 }}
       />
@@ -130,7 +130,7 @@ function TruedIcon() {
           cx={6 + i * 9}
           cy={34}
           r={2.5}
-          className="fill-primary"
+          className="fill-secondary"
           variants={{ start: { y: dy }, end: { y: 0 } }}
           transition={{ duration: 0.5, delay: i * 0.12, ease: "backOut" }}
         />

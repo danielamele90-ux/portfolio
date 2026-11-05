@@ -7,7 +7,7 @@ import { getProject, projects } from "@/app/data/projects";
 import { SummaryVisual } from "@/app/components/SummaryVisual";
 import { CaseSections } from "@/app/components/CaseSections";
 import { caseStudies } from "@/app/data/caseStudies";
-import Image from "next/image";
+import { CoverImage } from "@/app/components/CoverImage";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -94,12 +94,9 @@ export default async function CaseStudy({
             <p className="mt-6 text-muted">{project.placeholder}</p>
             {project.cover && (
               <div className="relative mt-10 aspect-[4/3] overflow-hidden rounded-xl">
-                <Image
-                  src={project.cover.src}
-                  alt={project.cover.alt}
-                  fill
+                <CoverImage
+                  cover={project.cover}
                   sizes="(min-width: 768px) 700px, 100vw"
-                  className="object-cover"
                 />
               </div>
             )}

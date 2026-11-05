@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { CoverImage } from "@/app/components/CoverImage";
 import Link from "next/link";
 import type { Project } from "@/app/data/projects";
 
@@ -10,12 +10,10 @@ export function ProjectCard({ project }: { project: Project }) {
     >
       <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-surface">
         {project.cover ? (
-          <Image
-            src={project.cover.src}
-            alt={project.cover.alt}
-            fill
+          <CoverImage
+            cover={project.cover}
             sizes="(min-width: 768px) 480px, 100vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            className="transition-transform duration-500 group-hover:scale-[1.02]"
           />
         ) : null}
       </div>

@@ -12,7 +12,7 @@ function rand(seed: number) {
   return x - Math.floor(x);
 }
 
-const INTRO_DURATION = 4; // seconds: fall (~40%), pause, then fall into order
+const INTRO_DURATION = 4; // seconds: upright letters fall (~40%), pause scattered, then move into order
 
 export function HeroTitle() {
   const reduceMotion = useReducedMotion();
@@ -34,8 +34,6 @@ export function HeroTitle() {
                 const startY = -260 - r1 * 220; // above the title
                 const restY = 4 + r2 * 18; // scattered on the line after landing
                 const dx = (r3 - 0.5) * 70;
-                const rot1 = (r1 - 0.5) * 120;
-                const rot2 = (r2 - 0.5) * 50;
                 const isLast = i === 14;
 
                 return (
@@ -45,12 +43,11 @@ export function HeroTitle() {
                     initial={
                       reduceMotion
                         ? false
-                        : { y: startY, x: dx, rotate: rot1, opacity: 0 }
+                        : { y: startY, x: dx, opacity: 0 }
                     }
                     animate={{
                       y: reduceMotion ? 0 : [startY, restY, restY, 0],
                       x: reduceMotion ? 0 : [dx, dx * 0.7, dx * 0.7, 0],
-                      rotate: reduceMotion ? 0 : [rot1, rot2, rot2, 0],
                       opacity: 1,
                     }}
                     transition={
@@ -70,7 +67,7 @@ export function HeroTitle() {
                     drag={interactive}
                     dragSnapToOrigin
                     dragElastic={0.6}
-                    whileDrag={{ scale: 1.12, rotate: (r3 - 0.5) * 20 }}
+                    whileDrag={{ scale: 1.12 }}
                   >
                     {char}
                   </motion.span>

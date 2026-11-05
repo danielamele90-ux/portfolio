@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { HeroTitle } from "@/app/components/HeroTitle";
+import { HowIWork } from "@/app/components/HowIWork";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { ProjectCard } from "@/app/components/ProjectCard";
@@ -98,6 +99,7 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+            <HowIWork />
           </div>
         </section>
       </main>

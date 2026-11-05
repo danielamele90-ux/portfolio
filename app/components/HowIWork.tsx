@@ -183,8 +183,10 @@ export function HowIWork() {
         >
           From complexity to connected experiences.
         </h2>
-        <p className="mt-3 text-sm text-muted">
-          Three words built from the letters of Product Designer.
+        <p className="mx-auto mt-3 max-w-xl text-muted">
+          As a lover of wordplay, I found three words hidden within
+          “Product Designer” that reflect my approach to complex user
+          journeys.
         </p>
         <ol className="mt-14 grid gap-5 text-left md:grid-cols-3">
           {principles.map(

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HeroTitle } from "@/app/components/HeroTitle";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { ProjectCard } from "@/app/components/ProjectCard";
@@ -18,9 +19,7 @@ export default function Home() {
       <SiteHeader />
       <main className="mx-auto w-full max-w-5xl px-6">
         <section className="py-20 md:py-28">
-          <h1 className="max-w-4xl font-display text-5xl font-semibold leading-[1.05] md:text-7xl">
-            Product Designer focused on complex user journeys
-          </h1>
+          <HeroTitle />
           <p className="mt-8 max-w-2xl text-lg text-muted md:text-xl">
             I connect user needs with business priorities to design clear,
             cohesive experiences, aligning teams around a shared vision.

@@ -10,6 +10,9 @@ export function SiteHeader() {
         <Link href="/#work" className="hover:text-primary">
           Work
         </Link>
+        <Link href="/#about" className="hover:text-primary">
+          About
+        </Link>
         <Link href="/#contact" className="hover:text-primary">
           Contact
         </Link>

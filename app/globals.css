@@ -25,6 +25,8 @@
   --color-footer: var(--palette-footer);
   --font-sans: var(--font-inter);
   --font-display: var(--font-bricolage);
+  --font-lexend: var(--font-lexend);
+  --font-manrope: var(--font-manrope);
 }
 
 body {

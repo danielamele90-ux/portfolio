@@ -204,12 +204,14 @@ function Shell({ step, children }: { step: 1 | 2 | 3; children: ReactNode }) {
       <div className="relative rounded-[52px] bg-[#1a1a1a] p-[14px] shadow-[0_20px_40px_rgba(33,28,25,0.18)]">
         <div className="relative aspect-[375/812] w-full overflow-hidden rounded-[38px] border border-[#e0d9d1] bg-white">
           <div className="pointer-events-none absolute left-1/2 top-[10px] z-10 h-[24px] w-[90px] -translate-x-1/2 rounded-full bg-[#1a1a1a]" />
-          <div className="flex h-full w-full flex-col overflow-y-auto px-[22px] pb-10 pt-9 font-lexend text-[#211c19]">
-            <Logo />
-            <div className="mt-2">
-              <ProgressTimeline step={step} />
+          <div className="flex h-full w-full flex-col font-lexend text-[#211c19]">
+            <div className="shrink-0 px-[22px] pt-9">
+              <Logo />
+              <div className="mt-2">
+                <ProgressTimeline step={step} />
+              </div>
             </div>
-            <div className="mt-6">{children}</div>
+            <div className="flex-1 overflow-y-auto px-[22px] pb-10 pt-6">{children}</div>
           </div>
           <div className="pointer-events-none absolute bottom-[8px] left-1/2 z-10 h-[4px] w-[120px] -translate-x-1/2 rounded-full bg-[#1a1a1a]/70" />
         </div>
@@ -246,7 +248,7 @@ function InfoCard({
       </div>
       <div className="mt-2 flex items-start gap-2 text-[13.5px]">
         {icon}
-        <div className="flex flex-col gap-[3px]">{children}</div>
+        <div className="flex min-w-0 flex-1 flex-col gap-[3px]">{children}</div>
       </div>
     </div>
   );

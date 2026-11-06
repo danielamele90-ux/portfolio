@@ -101,6 +101,26 @@ function IconLock({ className = "size-4" }: { className?: string }) {
   );
 }
 
+function LogoMark({ className = "h-5 w-7" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 28 20" className={className} fill="none" aria-hidden>
+      <rect x="0.5" y="7.5" width="6" height="6" rx="1.3" transform="rotate(45 3.5 10.5)" fill="#d25441" />
+      <rect x="6.5" y="1.5" width="6" height="6" rx="1.3" transform="rotate(45 9.5 4.5)" fill="#d25441" />
+      <rect x="12.5" y="7.5" width="6" height="6" rx="1.3" transform="rotate(45 15.5 10.5)" fill="#d25441" />
+      <rect x="18.5" y="1.5" width="6" height="6" rx="1.3" transform="rotate(45 21.5 4.5)" fill="#d25441" />
+    </svg>
+  );
+}
+
+function LogoHeader() {
+  return (
+    <div className="flex shrink-0 items-center gap-2 border-b border-[#e0d9d1] px-4 py-3">
+      <LogoMark />
+      <span className="font-display text-[15px] font-bold tracking-wide text-[#d25441]">MAB</span>
+    </div>
+  );
+}
+
 function ProgressTimeline({ active }: { active: 1 | 2 | 3 }) {
   return (
     <div className="flex items-center">
@@ -139,7 +159,8 @@ function Frame({
         <div className="relative aspect-[375/812] w-full overflow-hidden rounded-[38px] bg-white">
           <div className="pointer-events-none absolute left-1/2 top-[10px] z-10 h-[24px] w-[90px] -translate-x-1/2 rounded-full bg-[#1a1a1a]" />
           <div className="flex h-full w-full flex-col overflow-hidden">
-            <div className="shrink-0 pt-[38px]" />
+            <div className="shrink-0 pt-[30px]" />
+            <LogoHeader />
             {active && (
               <div className="shrink-0 border-b border-[#e0d9d1] px-4 py-3">
                 <ProgressTimeline active={active} />
@@ -237,7 +258,7 @@ export function MABPrototype() {
                       onClick={() => setTimeIndex(ti)}
                       className={`rounded-lg border py-2.5 text-center text-[12.5px] ${
                         ti === timeIndex
-                          ? "border-2 border-[#211c19] font-extrabold text-[#211c19]"
+                          ? "border-transparent bg-[#d25441] font-semibold text-white"
                           : "border-[#e0d9d1] text-[#675c52]"
                       }`}
                     >

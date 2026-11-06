@@ -10,18 +10,17 @@ export type Block =
   | { kind: "images"; images: Img[]; cols?: 1 | 2 | 3; caption?: string }
   | { kind: "columns"; columns: { title: string; items: string[] }[] }
   | { kind: "steps"; steps: { title: string; text: string; image?: Img }[] }
-  | { kind: "note"; text: string };
+  | { kind: "note"; text: string }
+  | { kind: "prototype" };
 
-export type Section = { label: string; heading: string; blocks: Block[] };
+export type Section = {
+  label: string;
+  heading: string;
+  blocks: Block[];
+  layout?: "split";
+};
 
 export type CaseStudy = { role: string[]; sections: Section[] };
-
-const screen = (n: 1 | 2 | 3, alt: string): Img => ({
-  src: `/images/mab/screen-${n}.webp`,
-  alt,
-  w: 750,
-  h: 1624,
-});
 
 export const caseStudies: Record<string, CaseStudy> = {
   mab: {
@@ -138,27 +137,17 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         label: "designing booking experience.",
         heading: "Guide, don't overwhelm",
+        layout: "split",
         blocks: [
           {
-            kind: "steps",
-            steps: [
-              {
-                title: "Make progression visible",
-                text: "A three-step progress indicator reduces disorientation. The selected slot is visually explicit, with one clear Continue action, so the journey feels finite.",
-                image: screen(1, "Time selection with a 3-step progress indicator"),
-              },
-              {
-                title: "Confirm before committing",
-                text: "A structured overview of what matters before confirming. Editable items stay visible, but Confirm is the single primary action: \"Is everything correct before I book?\"",
-                image: screen(2, "Appointment review with editable details"),
-              },
-              {
-                title: "Complete the user's job before asking for more",
-                text: "Account creation moves after confirmation. The success screen offers: check the confirmation, create an account to manage the appointment, or return home.",
-                image: screen(3, "Confirmation screen with optional account creation"),
-              },
+            kind: "text",
+            paragraphs: [
+              "Make progression visible. A three-step progress indicator reduces disorientation. The selected slot is visually explicit, with one clear Continue action, so the journey feels finite.",
+              "Confirm before committing. A structured overview of what matters before confirming. Editable items stay visible, but Confirm is the single primary action: is everything correct before I book?",
+              "Complete the user's job before asking for more. Account creation moves after confirmation. The success screen offers: check the confirmation, create an account to manage the appointment, or return home.",
             ],
           },
+          { kind: "prototype" },
         ],
       },
       {

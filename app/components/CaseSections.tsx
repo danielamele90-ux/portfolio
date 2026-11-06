@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Block, Img, Section } from "@/app/data/caseStudies";
+import { MABPrototype } from "@/app/components/MABPrototype";
 
 function Figure({ img, sizes }: { img: Img; sizes: string }) {
   return (
@@ -103,25 +104,58 @@ function BlockView({ block }: { block: Block }) {
           ))}
         </div>
       );
+    case "prototype":
+      return null;
   }
+}
+
+function SplitSection({ section }: { section: Section }) {
+  const textBlocks = section.blocks.filter((b) => b.kind !== "prototype");
+  const hasPrototype = section.blocks.some((b) => b.kind === "prototype");
+  return (
+    <section className="-mx-6 bg-surface px-4 py-10 md:mx-0 md:rounded-3xl md:px-12 md:py-16">
+      <div className="md:grid md:grid-cols-2 md:items-center md:gap-12">
+        <div>
+          <p className="text-sm text-muted">{section.label}</p>
+          <h2 className="mt-2 font-display text-2xl font-semibold leading-tight md:text-3xl">
+            {section.heading}
+          </h2>
+          <div className="mt-6 space-y-5">
+            {textBlocks.map((b, i) => (
+              <BlockView key={i} block={b} />
+            ))}
+          </div>
+        </div>
+        {hasPrototype && (
+          <div className="mt-10 md:mt-0">
+            <MABPrototype />
+          </div>
+        )}
+      </div>
+    </section>
+  );
 }
 
 export function CaseSections({ sections }: { sections: Section[] }) {
   return (
     <div className="mt-20 space-y-20">
-      {sections.map((s) => (
-        <section key={s.label}>
-          <p className="text-sm text-muted">{s.label}</p>
-          <h2 className="mt-2 font-display text-2xl font-semibold leading-tight md:text-3xl">
-            {s.heading}
-          </h2>
-          <div className="mt-6 space-y-8">
-            {s.blocks.map((b, i) => (
-              <BlockView key={i} block={b} />
-            ))}
-          </div>
-        </section>
-      ))}
+      {sections.map((s) =>
+        s.layout === "split" ? (
+          <SplitSection key={s.label} section={s} />
+        ) : (
+          <section key={s.label}>
+            <p className="text-sm text-muted">{s.label}</p>
+            <h2 className="mt-2 font-display text-2xl font-semibold leading-tight md:text-3xl">
+              {s.heading}
+            </h2>
+            <div className="mt-6 space-y-8">
+              {s.blocks.map((b, i) => (
+                <BlockView key={i} block={b} />
+              ))}
+            </div>
+          </section>
+        )
+      )}
     </div>
   );
 }

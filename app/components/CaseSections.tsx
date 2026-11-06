@@ -123,9 +123,9 @@ function SplitSection({ section }: { section: Section }) {
   const textBlocks = section.blocks.filter((b) => b.kind !== "prototype");
   const hasPrototype = section.blocks.some((b) => b.kind === "prototype");
   return (
-    <section className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-surface px-6 py-14 md:px-12 md:py-20">
-      <div className="mx-auto max-w-5xl md:grid md:grid-cols-2 md:items-center md:gap-16">
-        <div>
+    <section className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-surface px-6 pb-14 pt-14 md:px-0 md:pb-20 md:pt-[11.4286%]">
+      <div className="md:grid md:grid-cols-[460fr_940fr_500fr_minmax(320px,400fr)_500fr] md:items-center">
+        <div className="md:col-start-2">
           <p className="text-sm text-muted">{section.label}</p>
           <h2 className="mt-2 font-display text-2xl font-semibold leading-tight md:text-3xl">
             {section.heading}
@@ -137,7 +137,7 @@ function SplitSection({ section }: { section: Section }) {
           </div>
         </div>
         {hasPrototype && (
-          <div className="mt-10 md:mt-0">
+          <div className="mt-10 md:col-start-4 md:mt-0">
             <MABPrototype />
           </div>
         )}

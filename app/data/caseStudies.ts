@@ -11,7 +11,8 @@ export type Block =
   | { kind: "columns"; columns: { title: string; items: string[] }[] }
   | { kind: "steps"; steps: { title: string; text: string; image?: Img }[] }
   | { kind: "note"; text: string }
-  | { kind: "prototype" };
+  | { kind: "prototype" }
+  | { kind: "leadText"; items: { lead: string; text: string }[] };
 
 export type Section = {
   label: string;
@@ -140,11 +141,20 @@ export const caseStudies: Record<string, CaseStudy> = {
         layout: "split",
         blocks: [
           {
-            kind: "text",
-            paragraphs: [
-              "Make progression visible. A three-step progress indicator reduces disorientation. The selected slot is visually explicit, with one clear Continue action, so the journey feels finite.",
-              "Confirm before committing. A structured overview of what matters before confirming. Editable items stay visible, but Confirm is the single primary action: is everything correct before I book?",
-              "Complete the user's job before asking for more. Account creation moves after confirmation. The success screen offers: check the confirmation, create an account to manage the appointment, or return home.",
+            kind: "leadText",
+            items: [
+              {
+                lead: "Make progression visible.",
+                text: "A three-step progress indicator reduces disorientation. The selected slot is visually explicit, with one clear Continue action, so the journey feels finite.",
+              },
+              {
+                lead: "Confirm before committing.",
+                text: "A structured overview of what matters before confirming. Editable items stay visible, but Confirm is the single primary action: is everything correct before I book?",
+              },
+              {
+                lead: "Complete the user's job before asking for more.",
+                text: "Account creation moves after confirmation. The success screen offers: check the confirmation, create an account to manage the appointment, or return home.",
+              },
             ],
           },
           { kind: "prototype" },

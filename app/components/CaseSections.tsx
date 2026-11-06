@@ -106,6 +106,16 @@ function BlockView({ block }: { block: Block }) {
       );
     case "prototype":
       return null;
+    case "leadText":
+      return (
+        <div className="space-y-4">
+          {block.items.map((it) => (
+            <p key={it.lead} className="text-lg leading-relaxed">
+              <strong className="font-semibold">{it.lead}</strong> {it.text}
+            </p>
+          ))}
+        </div>
+      );
   }
 }
 
@@ -113,8 +123,8 @@ function SplitSection({ section }: { section: Section }) {
   const textBlocks = section.blocks.filter((b) => b.kind !== "prototype");
   const hasPrototype = section.blocks.some((b) => b.kind === "prototype");
   return (
-    <section className="-mx-6 bg-surface px-4 py-10 md:mx-0 md:rounded-3xl md:px-12 md:py-16">
-      <div className="md:grid md:grid-cols-2 md:items-center md:gap-12">
+    <section className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-surface px-6 py-14 md:px-12 md:py-20">
+      <div className="mx-auto max-w-5xl md:grid md:grid-cols-2 md:items-center md:gap-16">
         <div>
           <p className="text-sm text-muted">{section.label}</p>
           <h2 className="mt-2 font-display text-2xl font-semibold leading-tight md:text-3xl">

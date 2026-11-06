@@ -134,14 +134,25 @@ function Frame({
   active?: 1 | 2 | 3;
 }) {
   return (
-    <div className="mx-auto flex h-[680px] w-full max-w-[375px] flex-col overflow-hidden rounded-[28px] border border-[#e0d9d1] bg-white shadow-[0_1px_2px_rgba(33,28,25,0.05),0_8px_24px_rgba(33,28,25,0.08)]">
-      {active && (
-        <div className="shrink-0 border-b border-[#e0d9d1] px-4 py-3">
-          <ProgressTimeline active={active} />
+    <div className="mx-auto w-full max-w-[375px]">
+      <div className="relative rounded-[52px] bg-[#1a1a1a] p-[14px] shadow-[0_20px_40px_rgba(33,28,25,0.18)]">
+        <div className="relative aspect-[375/812] w-full overflow-hidden rounded-[38px] bg-white">
+          <div className="pointer-events-none absolute left-1/2 top-[10px] z-10 h-[24px] w-[90px] -translate-x-1/2 rounded-full bg-[#1a1a1a]" />
+          <div className="flex h-full w-full flex-col overflow-hidden">
+            <div className="shrink-0 pt-[38px]" />
+            {active && (
+              <div className="shrink-0 border-b border-[#e0d9d1] px-4 py-3">
+                <ProgressTimeline active={active} />
+              </div>
+            )}
+            <div className="flex-1 overflow-y-auto px-4 pb-12 pt-6">{children}</div>
+            {footer && (
+              <div className="shrink-0 border-t border-[#e0d9d1] px-4 pb-6 pt-3">{footer}</div>
+            )}
+          </div>
+          <div className="pointer-events-none absolute bottom-[8px] left-1/2 z-10 h-[4px] w-[120px] -translate-x-1/2 rounded-full bg-[#1a1a1a]/70" />
         </div>
-      )}
-      <div className="flex-1 overflow-y-auto px-4 py-6">{children}</div>
-      {footer && <div className="shrink-0 border-t border-[#e0d9d1] px-4 py-3">{footer}</div>}
+      </div>
     </div>
   );
 }
@@ -151,6 +162,17 @@ function PrimaryButton({ children, ...props }: React.ButtonHTMLAttributes<HTMLBu
     <button
       {...props}
       className="flex w-full items-center justify-center gap-2 rounded-full bg-[#d25441] py-4 text-center text-[15px] font-semibold text-white shadow-[0_10px_12px_rgba(210,84,65,0.32)]"
+    >
+      {children}
+    </button>
+  );
+}
+
+function SecondaryButton({ children, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
+  return (
+    <button
+      {...props}
+      className="flex w-full items-center justify-center gap-2 rounded-full border border-[#e0d9d1] py-4 text-center text-[15px] font-medium text-[#211c19]"
     >
       {children}
     </button>
@@ -339,13 +361,9 @@ export function MABPrototype() {
             <IconUsers className="size-4" /> Create account
           </PrimaryButton>
         </div>
-        <button
-          type="button"
-          onClick={reset}
-          className="mt-3 w-full rounded-full border border-[#e0d9d1] py-4 text-[15px] font-medium text-[#211c19]"
-        >
-          Back to home
-        </button>
+        <div className="mt-3">
+          <SecondaryButton onClick={reset}>Back to home</SecondaryButton>
+        </div>
         <p className="mt-3 text-center text-[12px] leading-snug text-[#7c746c]">
           You can modify or cancel your appointment anytime by creating an account.
         </p>
